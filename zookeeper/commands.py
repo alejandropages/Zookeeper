@@ -39,7 +39,7 @@ def upload(ctx, imgdir, projid, subject, quiet):
     '-g', '--no_generate',
     default=False,
     is_flag=True,
-    help='Generate a new export, versus download an existing one'
+    help='Download an existing one rather than generating one'
 )
 @click.pass_context
 def export(ctx, projid, outfile, exp_type, no_generate):
