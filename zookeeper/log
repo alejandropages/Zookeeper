@@ -27,3 +27,28 @@ Generating new export. This can take a while sometimes
 Getting export.
 Generating new export. This can take a while sometimes
 ### EXECUTION TIME: 2019-07-21T11:34:20.136746 ###
+### EXECUTION TIME: 2019-07-23T21:24:06.597933 ###
+### EXECUTION TIME: 2019-07-23T21:24:42.635180 ###
+### EXECUTION TIME: 2019-07-23T21:25:12.906519 ###
+Creating new subject set
+Loading images from manifest...
+### EXECUTION TIME: 2019-07-23T21:29:44.980109 ###
+Creating new subject set
+Could not set subject set display name
+> Validation failed: Display name has already been taken
+To use {} as the display name, get the subject set id from zooniverse and call this command with --subject <id>
+### EXECUTION TIME: 2019-07-23T21:30:30.267322 ###
+### EXECUTION TIME: 2019-07-23T21:32:11.806750 ###
+Loading images from manifest...
+1- 8-1-18-corn_81-270-B64_2018-10-04_02-24-47_2063400.png - success
+2- 8-1-18-corn_81-239-CML261_2018-10-04_12-44-09_2060300.png - success
+3- 8-1-18-corn_81-137-NC330_2018-09-28_10-01-04_1867700.png - success
+4- 8-1-18-corn_81-238-Tamaulipas_92_2018-09-25_05-04-22_1803600.png - success
+5- 8-1-18-corn_81-269-Ms71_2018-10-04_02-22-25_2063300.png - success
+6- 8-1-18-corn_81-162-Tlaxcala_273_2018-10-08_07-20-21_2169100.png - success
+7- 8-1-18-corn_81-110-CML323_2018-10-05_02-24-29_2095400.png - success
+8- 8-1-18-corn_81-140-NC354_2018-10-03_01-39-39_2041000.png - success
+9- 8-1-18-corn_81-047-CML218_2018-10-05_11-20-25_2089100.png - success
+10- 8-1-18-corn_81-076-NC238_2018-10-05_12-43-23_2092000.png - success
+11- 8-1-18-corn_81-107-IA_22_2018-10-05_02-16-31_2095100.png - success
+12- 8-1-18-corn_81-176-IA_23_2018-10-03_03-01-18_2044600.png - success

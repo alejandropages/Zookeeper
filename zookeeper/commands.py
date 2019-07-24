@@ -7,7 +7,7 @@ from .zootils import utils
 @click.option(
     '-s', '--subject',
     default=False,
-    is_flag=True,
+    nargs=1,
     help='Designate subject set id'
 )
 @click.option(
