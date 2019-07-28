@@ -1,2 +1,4 @@
 # Zookeeper
-Deprecated in favor of the official zoonivese cli tool, Panoptes. Zooniverse backend project management tools
+Note: if you're looking for a general purpose utility for managing zooniverse projects data from the backend, use the official zooniverse cli tool Panoptes.
+
+This is a script written for the Schnable Lab that allows for customization tailored specifically for our application.
