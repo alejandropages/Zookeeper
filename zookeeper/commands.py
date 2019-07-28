@@ -1,5 +1,8 @@
 import click
+from panoptes_client.panoptes import PanoptesAPIException
+
 from .zootils import utils
+
 
 @click.command()
 @click.argument('imgdir')
@@ -19,10 +22,13 @@ from .zootils import utils
 @click.pass_context
 def upload(ctx, imgdir, projid, subject, quiet):
     ''' Uploads images from the image directory to zooniverse project '''
-    from .zootils import upload as zoo_upload
+    from .zootils import upload
 
-    utils.connect(un=ctx.obj['un'], pw=ctx.obj['pw'])
-    zoo_upload(imgdir, projid, subject, quiet)
+    try:
+        utils.connect(un=ctx.obj['un'], pw=ctx.obj['pw'])
+    except PanoptesAPIException as e:
+        exit(e)
+    upload(imgdir, projid, subject, quiet)
 
     return
 
@@ -44,10 +50,12 @@ def upload(ctx, imgdir, projid, subject, quiet):
 @click.pass_context
 def export(ctx, projid, outfile, exp_type, no_generate):
     ''' Gets export from zooniverse project '''
-    from .zootils import export as zoo_export
-
-    utils.connect(un=ctx.obj['un'], pw=ctx.obj['pw'])
-    zoo_export(projid, outfile, exp_type, no_generate)
+    from .zootils import export
+    try:
+        utils.connect(un=ctx.obj['un'], pw=ctx.obj['pw'])
+    except PanoptesAPIException as e:
+        exit(e)
+    export(projid, outfile, exp_type, no_generate)
 
     return
 
@@ -56,8 +64,8 @@ def export(ctx, projid, outfile, exp_type, no_generate):
 @click.argument('imgdir')
 def manifest(imgdir):
     ''' Generate a manifest in the directory specified by imgdir '''
-    from .zootils import manifest as zoo_manifest
+    from .zootils import manifest
 
-    zoo_manifest(imgdir)
+    manifest(imgdir)
 
     return

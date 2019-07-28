@@ -1,28 +1,18 @@
 from getpass import getpass
-import sys
 import os.path as osp
 import os
 from datetime import datetime as dt
 import csv
-import logging
 import re
 from subprocess import run, CalledProcessError
-from pprint import pprint
-try:
-    import panoptes_client as pan
-    from panoptes_client.panoptes import PanoptesAPIException
-except ImportError:
-    print("panoptes_client package could not be imported. To install use:")
-    print("> pip install panoptes-client")
-    print("Or activate your panoptes-client enabled environment")
-    exit(False)
+
+import panoptes_client as pan
+from panoptes_client.panoptes import PanoptesAPIException
+
+from .logger import get_logger
 
 
-log = logging.getLogger(__file__)
-log.setLevel(logging.DEBUG)
-log.addHandler(logging.FileHandler(osp.join(osp.dirname(osp.abspath(__file__)), "log")))
-log.info('### EXECUTION TIME: ' + dt.now().isoformat() + ' ###')
-log.addHandler(logging.StreamHandler())
+log = get_logger()
 
 
 def upload(imgdir, projid, subject, quiet):
@@ -52,7 +42,7 @@ def upload(imgdir, projid, subject, quiet):
     '''
 
     if quiet:
-        log.setLevel(logging.INFO)
+        log.setLevel(logging.ERROR)
 
     if not osp.isdir(imgdir):
         log.error("Image directory '{}' does not exist".format(imgdir))
@@ -248,9 +238,9 @@ def export(projid, outfile, exp_type, no_generate):
     project = pan.Project.find(id=projid)
 
     try:
-        log.info("Getting export.")
+        log.info("Getting export...")
         if not no_generate:
-            log.info("Generating new export. This can take a while sometimes")
+            log.info("Generating new export. This can take a while")
         export = project.get_export(exp_type, generate=not no_generate)
 
         with open(outfile, 'w') as zoof:
@@ -279,8 +269,6 @@ class utils:
             pan.Panoptes.connect(username=un, password=pw)
         except PanoptesAPIException as e:
             log.error("Could not connect to zooniverse project")
-            for arg in e.args:
-                log.error("> " + arg)
             raise
 
         return
