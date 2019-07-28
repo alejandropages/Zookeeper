@@ -114,7 +114,7 @@ def upload(imgdir, projid, subject, quiet):
     for row in reader:
         try:
             # getsize returns file size in bytes
-            filesize = osp.getsize(row['filename']) / 1000
+            filesize = osp.getsize(osp.join(imgdir, row['filename'])) / 1000
             if filesize > 256:
                 log.warning("File size of {}KB is larger than recommended 256KB"
                          .format(filesize))
