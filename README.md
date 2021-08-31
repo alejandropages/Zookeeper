@@ -1,4 +1,4 @@
 # Zookeeper
-Note: if you're looking for a general purpose utility for managing zooniverse projects data from the backend, use the official zooniverse cli tool Panoptes.
+If you're looking for a general purpose utility for managing zooniverse project data from the command line, there is now an official zooniverse cli tool.
 
-This is a repo written for the Schnable Lab that allows for customization tailored specifically for our application.
+This was written before I discovered panoptes and it's specifically designed for my use case.
